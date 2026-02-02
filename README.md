@@ -116,22 +116,22 @@ Response: Array of last 50 jobs (descending by createdAt)
 
 ### Worker & Retry Mechanism
 
-Multiple worker goroutines process jobs concurrently
-Jobs transition through statuses:
-pending -> processing -> completed/failed
+- Multiple worker goroutines process jobs concurrently
+- Jobs transition through statuses:
+  pending -> processing -> completed/failed
 
 ### Retries:
 
-Max retries configurable (MaxRetries = 3)
-Job is re-queued if failed
-retryCount tracks attempts
-Failed jobs after max retries are marked failed
+- Max retries configurable (MaxRetries = 3)
+- Job is re-queued if failed
+- retryCount tracks attempts
+- Failed jobs after max retries are marked failed
 
 ### Scaling & Overload
 
-Increase numWorkers to process more jobs concurrently
-Queue buffer (queueSize) prevents dropping jobs under load
-Handles transient failures gracefully with retries
+- Increase numWorkers to process more jobs concurrently
+- Queue buffer (queueSize) prevents dropping jobs under load
+- Handles transient failures gracefully with retries
 
 Example MongoDB Document
 
@@ -149,13 +149,14 @@ Example MongoDB Document
 
 ### Future Improvements
 
-Support different job types with custom handlers
-Persist job execution logs
-Add graceful shutdown for workers
-Implement priority queue for urgent jobs
+- Support different job types with custom handlers
+- Persist job execution logs
+- Add graceful shutdown for workers
+- Implement priority queue for urgent jobs
 
-Postman Collection
-You can import this directly in Postman:
+### Postman Collection
+
+- You can import this directly in Postman:
 
 ```bash
 {
